@@ -1,0 +1,6 @@
+[
+  { "Id": 1, "Name": "esti", "Password": "1234", "IsAdmin": true },
+  { "Id": 2, "Name": "Shifra", "Password": "1475", "IsAdmin": false },
+  { "Id": 4, "Name": "Elisheva", "Password": "741", "IsAdmin": false },
+  { "Id": 7, "Name": "noha", "Password": "1234", "IsAdmin": false }
+]
