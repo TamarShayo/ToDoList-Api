@@ -1,8 +1,0 @@
-[
-  { "Id": 1, "Name": "Esty", "Password": "123456789", "IsAdmin": true },
-  { "Id": 2, "Name": "Shifra", "Password": "147674435", "IsAdmin": false },
-  { "Id": 3, "Name": "Tal", "Password": "14887234", "IsAdmin": false },
-  { "Id": 4, "Name": "Tamar", "Password": "748787871", "IsAdmin": false },
-  { "Id": 5, "Name": "Noha", "Password": "144447234", "IsAdmin": false },
-  { "Id": 6, "Name": "Amir", "Password": "765372292", "IsAdmin": false }
-]

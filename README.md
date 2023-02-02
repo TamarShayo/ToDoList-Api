@@ -2,13 +2,11 @@
 ToDolist project-
 is a task management project,
 You must register on the website, after registration each user has a comfortable and beautiful api for managing tasks😀,
-Each user can add, delete and edit their tasks.
-In addition, an administrator can receive the list of users, as well as the option to add new users.
+Each user can view, add, delete and edit their tasks.
+Administrators can receive the list of users, and the option to add new users.
 
 "ScreenShot" is a screenshot of the project pages
 
-Developed by Tamar Shayo & Esty Hailbron 👍:
-T0556788640@gmail.com
-esty7605@gmail.com
+Developed by Tamar Shayo & Esty Hailbron 👍
 # Postman link
-[Postman](https://go.postman.co/workspace/My-Workspace~16ee400c-745e-43a7-878e-3fb012a4b69f/collection/25604200-ba3db8aa-9fed-421d-8506-a4a54eec59e3)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/24869712-433d3436-5ef1-4ecf-86ba-be876718a608?action=collection%2Ffork&collection-url=entityId%3D24869712-433d3436-5ef1-4ecf-86ba-be876718a608%26entityType%3Dcollection%26workspaceId%3D2a4982b8-b1f0-4dfb-8389-02ee815779b7)
