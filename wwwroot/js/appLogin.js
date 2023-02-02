@@ -1,6 +1,6 @@
 const url = "/MyUser";
 var myToken = "";
-//function to show all users
+
 const Login = () => {
   let userName = document.getElementById("Name");
   let userPassword = document.getElementById("Password");
@@ -34,4 +34,5 @@ const Login = () => {
     })
     .catch((error) => alert("error"));
 };
+
 displayUsers(result);

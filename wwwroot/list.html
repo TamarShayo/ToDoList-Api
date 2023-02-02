@@ -1,111 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>ToDoList</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
 
-  <body>
-    <a href="index.html"
-      ><button class="TransparentButton">| sign out |</button></a
-    >
-    <br />
-    <h1>What I need to do?</h1>
-    <div>
-      <form
-        action="javascript:void(0);"
-        method="POST"
-        onsubmit="addItem()"
-        style="direction: ltr"
-      >
-        <input type="text" id="new-task" placeholder="New task" />
-        <input class="TransparentButton" type="submit" value="➕" />
+<head>
+  <meta charset="UTF-8" />
+  <title>ToDoList</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <a href="index.html"><button class="TransparentButton">| sign out |</button></a>
+  <br />
+  <h1>What I need to do?</h1>
+  <div>
+    <form action="javascript:void(0);" method="POST" onsubmit="addItem()" style="direction: ltr">
+      <input type="text" id="add-task" placeholder="New task" />
+      <input class="TransparentButton" type="submit" value="➕" />
+    </form>
+    <div id="editForm">
+      <h3>Edit</h3>
+      <form action="javascript:void(0);" onsubmit="updateItem()">
+        <input type="hidden" id="edit-id" />
+        <input type="checkbox" id="edit-isDone" />
+        <input type="text" id="edit-name" />
+        <input type="submit" value="Save" />
+        <a onclick="closeInput()" aria-label="Close">&#10006;</a>
       </form>
-      <div id="editForm">
-        <h3>Edit</h3>
-        <form action="javascript:void(0);" onsubmit="updateItem()">
-          <input type="hidden" id="edit-id" />
-          <input type="checkbox" id="edit-isDone" />
-          <input type="text" id="edit-name" />
-          <input type="submit" value="Save" />
-          <a onclick="closeInput()" aria-label="Close">&#10006;</a>
-        </form>
-      </div>
-      <p id="counter"></p>
-      <table>
-        <tr>
-          <th class="narrowTh">Is done?</th>
-          <th>Name</th>
-          <th>Edit</th>
-          <th class="narrowTh">Delete</th>
-        </tr>
-        <tbody id="tasks"></tbody>
-      </table>
     </div>
+    <h4 id="counter-task"></h4>
+    <table>
+      <tr>
+        <th class="narrowTh">Is done?</th>
+        <th>Name</th>
+        <th>Edit</th>
+        <th class="narrowTh">Delete</th>
+      </tr>
+      <tbody id="tasks"></tbody>
+    </table>
+  </div>
+  <br />
 
-    <br />
-    <button
-      id="userBlock"
-      class="Add_button"
-      style="display: none"
-      onclick="showUserBlock()"
-    >
-      All my users
+  <button id="userBlock" class="Add_button" style="display: none" onclick="showUserBlock()">
+    All my users
+  </button>
+
+  <div id="blockUsersTable" style="display: none">
+    <h1>All my users:</h1>
+
+    <button id="addUserButton" class="Add_button" onclick="showaddUserBlock()">
+      Add user:
     </button>
-    <div id="blockUsersTable" style="display: none">
-      <h1>All my users:</h1>
-      <button
-        id="addUserButton"
-        class="Add_button"
-        onclick="showaddUserBlock()"
-      >
-        Add user:
-      </button>
-      <div id="addNewUserBlock" style="display: none">
-        <form action="javascript:void(0);" method="POST" onsubmit="addUser()">
-          <input type="text" id="new-user" placeholder="New user" />
-          <input type="text" id="new-password" placeholder="Password" />
-          <input type="submit" value="Add" />
-        </form>
-      </div>
-      <h4>Your user:</h4>
-      <table>
-        <tr>
-          <th class="narrowTh">Is Admin?</th>
-          <th>Name</th>
-          <th>Password</th>
-          <th class="narrowTh">Delete</th>
-        </tr>
-        <tbody id="result"></tbody>
-      </table>
+
+    <div id="addNewUserBlock" style="display: none">
+      <form action="javascript:void(0);" method="POST" onsubmit="addUser()">
+        <input type="text" id="add-userName" placeholder="name" />
+        <input type="text" id="add-userPassword" placeholder="Password" />
+        <input type="submit" value="Add" />
+      </form>
     </div>
-    <br /><br />
-    <div style="display: inline-block">
-      <div class="postman-run-button"
-data-postman-action="collection/fork"
-data-postman-var-1="24869712-433d3436-5ef1-4ecf-86ba-be876718a608"
-data-postman-collection-url="entityId=24869712-433d3436-5ef1-4ecf-86ba-be876718a608&entityType=collection&workspaceId=2a4982b8-b1f0-4dfb-8389-02ee815779b7"></div>
-<script type="text/javascript">
-  (function (p,o,s,t,m,a,n) {
-    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
-    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
-      (n = o.createElement("script")),
-      (n.id = s+t), (n.async = 1), (n.src = m), n
-    ));
-  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
-</script>
-      <a
-        href="https://go.postman.co/workspace/My-Workspace~16ee400c-745e-43a7-878e-3fb012a4b69f/collection/25604200-ba3db8aa-9fed-421d-8506-a4a54eec59e3"
-      >
-        <button class="TransparentButton">
-          <img
-            src="Image&Fonts/postmanIcon.png"
-            alt="HTML tutorial"
-            style="width: 30px; height: 30px"
-          /></button
-      ></a>
+    <h4 id="counter-user"></h4>
+    <table>
+      <tr>
+        <th class="narrowTh">Is Admin?</th>
+        <th>Name</th>
+        <th>Password</th>
+        <th class="narrowTh">Delete</th>
+      </tr>
+      <tbody id="result"></tbody>
+    </table>
+  </div>
+  <br /><br />
+  <div style="display: inline-block">
+    <div class="postman-run-button" data-postman-action="collection/fork"
+      data-postman-var-1="24869712-433d3436-5ef1-4ecf-86ba-be876718a608"
+      data-postman-collection-url="entityId=24869712-433d3436-5ef1-4ecf-86ba-be876718a608&entityType=collection&workspaceId=2a4982b8-b1f0-4dfb-8389-02ee815779b7">
     </div>
-    <script src="js/appApi.js" asp-append-version="true"></script>
-  </body>
+    <script type="text/javascript">
+      (function (p, o, s, t, m, a, n) 
+      {
+        !p[s] && (p[s] = function () 
+        {
+            (p[t] || (p[t] = [])).push(arguments);
+        });
+        !o.getElementById(s + t) && o.getElementsByTagName("head")[0].appendChild(
+              ((n = o.createElement("script")), (n.id = s + t), (n.async = 1), (n.src = m), n));})
+      ( window,
+        document,
+        "_pm",
+        "PostmanRunObject",
+        "https://run.pstmn.io/button.js"
+      );
+    </script>
+  </div>
+  <script src="js/appApi.js" asp-append-version="true"></script>
+</body>
 </html>

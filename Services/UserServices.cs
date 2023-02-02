@@ -17,8 +17,8 @@ namespace ToDoList.Services
         List<MyUser>? users { get; }
         private IWebHostEnvironment webHost;
         private string filePath;
-     
-             public UserService(IWebHostEnvironment webHost)
+
+        public UserService(IWebHostEnvironment webHost)
         {
             this.webHost = webHost;
             this.filePath = Path.Combine(webHost.ContentRootPath, "Data", "User.json");
@@ -45,8 +45,8 @@ namespace ToDoList.Services
 
         public void Add(MyUser user)
         {
-            MyUser lastElement= users.LastOrDefault();
-            user.Id = lastElement.Id+1;
+            MyUser lastElement = users.LastOrDefault();
+            user.Id = lastElement.Id + 1;
             users.Add(user);
             saveToFile();
         }
@@ -59,7 +59,7 @@ namespace ToDoList.Services
             users.Remove(user);
             saveToFile();
         }
-         public int Count => users.Count();
+        public int Count => users.Count();
 
     }
 

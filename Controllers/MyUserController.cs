@@ -67,7 +67,7 @@ namespace ToDoList.Controllers
             var user = UserService.Get(id);
             if (user is null)
                 return NotFound();
-            if( user.IsAdmin)
+            if (user.IsAdmin)
                 return Forbid();
             UserService.Delete(id);
 
