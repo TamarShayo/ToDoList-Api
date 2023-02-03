@@ -89,7 +89,7 @@ function addUser() {
       newUserPassword.value = "";
       getUsers();
     })
-    .catch((error) => console.log("error", error));
+    .catch((error) => console.log(alert("Error, the user isnt added, try again")));
 }
 
 function deleteUser(id) {
@@ -103,7 +103,7 @@ function deleteUser(id) {
 
   fetch(`${url}/${id}`, requestOptions)
     .then((response) => getUsers())
-    .catch((error) => console.log("error", error));
+    .catch((error) => console.log(alert("Error, the user isnt delete, try again")));
 }
 
 // --------------- Tasks ---------------
@@ -120,7 +120,7 @@ function getItems() {
   })
     .then((response) => response.json())
     .then((data) => _displayItems(data))
-    .catch((error) => alert("Unable to get items.", error));
+    .catch((error) => console.log(alert("Unable to get tasks")));
 }
 function _displayItems(data) {
   const tBody = document.getElementById("tasks");
@@ -185,7 +185,7 @@ function addItem() {
       getItems();
       addNameTextbox.value = "";
     })
-    .catch((error) => console.error("Unable to add item.", error));
+    .catch((error) => console.log(alert("Eror, the task isnt added")));
 }
 
 function deleteItem(id) {
@@ -196,7 +196,7 @@ function deleteItem(id) {
     },
   })
     .then(() => getItems())
-    .catch((error) => console.error("Unable to delete item.", error));
+    .catch((error) => console.log(alert("Eror, the task isnt delete")));
 }
 
 function displayEditForm(id) {
@@ -226,7 +226,7 @@ function updateItem() {
     body: JSON.stringify(item),
   })
     .then(() => getItems())
-    .catch((error) => console.error("Unable to update item.", error));
+    .catch((error) => console.log(alert("Eror, the task isnt added")));
 
   closeInput();
   return false;
@@ -262,10 +262,14 @@ function encode(password) {
 
 function _displayCountTask(itemCount) {
   const name = itemCount <= 1 ? "task" : "tasks";
-  document.getElementById("counter-task").innerText = `you have now ${itemCount} ${name}`;
+  document.getElementById(
+    "counter-task"
+  ).innerText = `you have now ${itemCount} ${name}`;
 }
 
 function _displayCountUser(userCount) {
   const name = userCount <= 1 ? "user" : "users";
-  document.getElementById("counter-user").innerText = `you have now ${userCount} ${name}`;
+  document.getElementById(
+    "counter-user"
+  ).innerText = `you have now ${userCount} ${name}`;
 }
