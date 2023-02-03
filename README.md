@@ -1,7 +1,7 @@
 # ToDoList-Api
 ToDolist project-
 is a task management project,
-You must register on the website, after registration each user has a comfortable and beautiful api for managing tasks😀,
+You must register on the website, after registration each user has a comfortable and beautiful user interface for managing tasks😀,
 Each user can view, add, delete and edit their tasks.
 Administrators can receive the list of users, and the option to add new users.
 
