@@ -40,6 +40,11 @@ namespace ToDoList.Services
         }
 
         public List<MyUser> GetAll() => users;
+        public bool checkPolicy(String token) {
+           int id= int.Parse(TokenService.Decode(token));
+           MyUser user= users.FirstOrDefault(t => t.Id == id);
+           return user.IsAdmin;
+        } 
 
         public MyUser Get(int id) => users.FirstOrDefault(t => t.Id == id);
 

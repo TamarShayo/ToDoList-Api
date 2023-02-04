@@ -1,9 +1,31 @@
 const url = "/MyUser";
+const urlItems = "/MyTask";
 let tasks = [];
 let Token = sessionStorage.getItem("token");
-
+AdminOrUser()
+function AdminOrUser(){
+  var myHeaders = new Headers();
+  myHeaders.append("Authorization", `Bearer ${Token}`);
+  
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+  };
+  
+  fetch(`${url}/checkPolicy`, requestOptions)
+    .then(response => response.text())
+    .then(result => {
+      if (result=="true"){
+        getUsers();
+        getItems();
+      }
+      else
+      getItems();
+    })
+    .catch(error => console.log('error', error));
+}
 // --------------- User ---------------
-getUsers();
 function getUsers() {
   var myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${Token}`);
@@ -107,8 +129,6 @@ function deleteUser(id) {
 }
 
 // --------------- Tasks ---------------
-const urlItems = "/MyTask";
-getItems();
 function getItems() {
   fetch(urlItems, {
     method: "Get",

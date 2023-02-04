@@ -6,6 +6,7 @@ using ToDoList.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using ToDoList.Services;
+using Microsoft.Net.Http.Headers;
 
 namespace ToDoList.Controllers
 {
@@ -42,6 +43,15 @@ namespace ToDoList.Controllers
         [Authorize(Policy = "Admin")]
         public ActionResult<List<MyUser>> GetAll() =>
             UserService.GetAll();
+
+        [HttpGet]
+        [Route("[action]")]
+        [Authorize(Policy = "User")]
+        public bool checkPolicy() {
+            var token = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer ", "");
+           bool Admin= UserService.checkPolicy(token);
+           return Admin;
+        }
 
         [HttpGet("{id}")]
         [Authorize(Policy = "Admin")]

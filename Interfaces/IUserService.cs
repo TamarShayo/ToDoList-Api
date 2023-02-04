@@ -8,6 +8,7 @@ namespace ToDoList.Interfaces
         void Add(MyUser user);
         void Delete(int id);
         int Count { get; }
+        bool checkPolicy(String token);
 
     }
 
