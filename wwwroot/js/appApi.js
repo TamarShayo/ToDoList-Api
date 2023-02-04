@@ -111,7 +111,7 @@ function addUser() {
       newUserPassword.value = "";
       getUsers();
     })
-    .catch((error) => console.log(alert("Error, the user isnt added, try again")));
+    .catch((error) => console.log(alert("Error,The user was not added, try again")));
 }
 
 function deleteUser(id) {
@@ -125,7 +125,7 @@ function deleteUser(id) {
 
   fetch(`${url}/${id}`, requestOptions)
     .then((response) => getUsers())
-    .catch((error) => console.log(alert("Error, the user isnt delete, try again")));
+    .catch((error) => console.log(alert("Error,The user was not deleted, try again")));
 }
 
 // --------------- Tasks ---------------
@@ -205,7 +205,7 @@ function addItem() {
       getItems();
       addNameTextbox.value = "";
     })
-    .catch((error) => console.log(alert("Eror, the task isnt added")));
+    .catch((error) => console.log(alert("Eror,The task was not added")));
 }
 
 function deleteItem(id) {
@@ -216,7 +216,7 @@ function deleteItem(id) {
     },
   })
     .then(() => getItems())
-    .catch((error) => console.log(alert("Eror, the task isnt delete")));
+    .catch((error) => console.log(alert("Eror,The task was not deleted")));
 }
 
 function displayEditForm(id) {
@@ -246,7 +246,7 @@ function updateItem() {
     body: JSON.stringify(item),
   })
     .then(() => getItems())
-    .catch((error) => console.log(alert("Eror, the task isnt added")));
+    .catch((error) => console.log(alert("Eror,The task was not updated")));
 
   closeInput();
   return false;
